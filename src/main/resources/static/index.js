@@ -6,7 +6,7 @@ data = {
     "gender": "Male"
 }
 
-// data.name // John
+//data.name /john
 var  users = [
     {
     "name": "John Doe",
@@ -26,12 +26,32 @@ function toggleuser()
 {
     id=(id+1)%2
 
-    var userImage= document.getElementById("User-Image");
+    var userImage= document.getElementById("user-image");
     userImage.src=users[id].img;
 
     var userName= document.getElementById("user-name");
     userName.innerHTML=users[id].name;
 
-    var userGender=DocumentFragment.getElementById("user-Gender");
+    var userGender=document.getElementById("user-gender");
     userGender.innerHTML=users[id].gender;
+}
+
+function randomUser(){
+    fetch('https://randomuser.me/api/')
+        .then(function(response){
+            return response.json();
+        })
+        .then(function(data){
+            var userData = data.results[0];
+            var userImage = document.getElementById("user-image");
+            userImage.src = userData.picture.large;
+            var userName = document.getElementById("user-name");
+            userName.innerHTML = userData.name.first + " " +
+                                    userData.name.last;
+            var userGender = document.getElementById("user-gender");
+            userGender.innerHTML = userData.gender;
+        })
+        .catch(function(err){
+            console.log(err);
+        })
 }
