@@ -16,3 +16,8 @@ padding: 20px;
 text-decoration: none;
 color: black;
 }
+
+.navbar a:hover{
+    color:aqua;
+    background-color: teal;
+}
