@@ -23,3 +23,12 @@ color: black;
     color:aqua;
     background-color: teal;
 }
+
+.card{
+    border: 1px solid black;
+    width: 350px;
+}
+
+.card img{
+    width: 100%;
+}
